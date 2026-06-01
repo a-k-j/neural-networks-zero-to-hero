@@ -13,7 +13,7 @@ Here keepdim = True is really important because:
 - By default keepdim is False and if we forget to set it to true, the sum is still calculated correctly but the returned Tensor has dimension of just 27 as the 1 is squeezed out due to the default behaviour of Torch.
 - If we try to divide P by this we still get a result because both tensors are broadcastable as:
     - P is 27 * 27 and P.sum(1) is 27
-    - Right aligning them and then checking for conditions for broadcastability reveals:
+    - Right aligning them and then checking for conditions for broadcastability reveals: \
         27 27 \
         __ 27 
     Since 27 matches and then after that a missing dimension is not an issue since according to rules.
