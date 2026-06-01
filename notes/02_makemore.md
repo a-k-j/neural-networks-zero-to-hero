@@ -14,10 +14,12 @@ Here keepdim = True is really important because:
 - If we try to divide P by this we still get a result because both tensors are broadcastable as:
     - P is 27 * 27 and P.sum(1) is 27
     - Right aligning them and then checking for conditions for broadcastability reveals:
-        - 27 27
+        - 27 27 \\
              27
     Since 27 matches and then after that a missing dimension is not an issue since according to rules.
     - Torch will add 1 for that missing dimension.
 - The code runs successfully but we do not get the expected result as the division does not produce a Probability Distribution due to incorrect division.
 
 4. torch.tensor build dtype torch.int64 and torch.tensor build dtype torch.float32
+
+5. Generator should be reinitialised everytime before using to make sure consistency across notebooks.
